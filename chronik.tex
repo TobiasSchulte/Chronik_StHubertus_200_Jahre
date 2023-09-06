@@ -7,12 +7,15 @@ openany,
 
 \usepackage{fontspec}
 \usepackage[raggedright,bf,sf]{titlesec}
+\usepackage{titletoc}
 \usepackage{titling}
 \usepackage{nameref}
 \usepackage[german]{babel} % English please
 \usepackage[final]{microtype} % Less badboxes
 \usepackage{graphicx} % Include figures
 \usepackage{lipsum} % Just to put in some text
+\usepackage{xcolor}
+\usepackage{caption}
 
 \usepackage{merriweather}
 \usepackage{librecaslon} % Caslon font
@@ -21,13 +24,49 @@ openany,
 %\setsansfont{Merriweather Sans}
 \setsansfont{Myriad Pro}
 
-\renewcommand{\printtoctitle}[1]{\Huge\sffamily #1}
-\renewcommand{\printloftitle}[1]{\Huge\sffamily #1}
-\renewcommand{\printlottitle}[1]{\Huge\sffamily #1}
+\renewcommand{\printtoctitle}[1]{\LARGE\sffamily #1}
+\renewcommand{\printloftitle}[1]{\LARGE\sffamily #1}
+\renewcommand{\printlottitle}[1]{\LARGE\sffamily #1}
+
+\titlecontents{chapter}
+  [1.5em] % ie, 1.5em (chapter) + 2.3em
+  {\sffamily}
+  {\contentslabel{2.3em}}
+  {\hspace*{-2.3em}}
+  {\titlerule*[1pc]{.}\contentspage}
+
+\titlecontents{subsection}
+  [6.1em] % ie, 1.5em (chapter) + 2.3em
+  {\sffamily}
+  {\contentslabel{2.3em}}
+  {\hspace*{-2.3em}}
+  {\titlerule*[1pc]{.}\contentspage}
+
+\titlecontents{section}
+  [3.8em] % ie, 1.5em (chapter) + 2.3em
+  {\sffamily}
+  {\contentslabel{2.3em}}
+  {\hspace*{-2.3em}}
+  {\titlerule*[1pc]{.}\contentspage}
 
 \newcommand{\tabref}[1]{Tabelle \ref{#1}: \nameref{#1}}
 
-\titleformat{\chapter}{\sffamily\bfseries\Huge}{\selectfont\thechapter}{1em}{}
+\captionsetup{%
+  font={normalsize}, % small font size
+  labelfont={sf},      % label in bold, sans-serif
+  textfont={sf},
+  singlelinecheck=true, % centered single-lined captions
+  format=plain,             % indention=1cm,
+  labelsep={colon},         % default separator: none, colon, period, space, quad, newline, endash
+}
+
+%\titleformat{\chapter}[display]{\sffamily\Huge}{}{1em}{\thechapter}
+\titleformat{\chapter}[display]{\sffamily\LARGE}{\raggedleft\HUGE\textcolor{gray}{\normalfont\thechapter}}{0.5em}{}[\titlerule]
+\titleformat*{\section}{\sffamily\LARGE}
+\titleformat*{\subsection}{\sffamily\Large}
+\titleformat*{\subsubsection}{\sffamily\large}
+\titleformat*{\paragraph}{\sffamily\large}
+\titleformat*{\subparagraph}{\sffamily\large}
 
 \setlrmarginsandblock{0.15\paperwidth}{*}{1} % Left and right margin
 \setulmarginsandblock{0.2\paperwidth}{*}{1}  % Upper and lower margin
@@ -51,9 +90,9 @@ openany,
 \makeatletter                 % Define standard pagestyle
 \makeevenfoot{standard}{\small\sffamily\thepage}{}{} %
 \makeoddfoot{standard}{}{}{\small\sffamily\thepage}  %
-\makeevenhead{standard}{\sffamily\small\leftmark}{}{}
-\makeoddhead{standard}{}{}{\sffamily\small\rightmark}
-% \makeheadrule{standard}{\textwidth}{\normalrulethickness}
+\makeevenhead{standard}{\textcolor{gray}{\sffamily\small\leftmark}}{}{}
+\makeoddhead{standard}{}{}{\textcolor{gray}{\sffamily\small\rightmark}}
+\makeheadrule{standard}{\textwidth}{\normalrulethickness}
 \makeatother                  %
 
 \makeatletter
@@ -76,7 +115,7 @@ openany,
 \makeoddfoot{chap}{}{}{\small\sffamily\thepage}  %
 \makeevenhead{chap}{}{}{}   %
 \makeoddhead{chap}{}{}{}    %
-% \makeheadrule{chap}{\textwidth}{\normalrulethickness}
+%\makeheadrule{chap}{\textwidth}{\normalrulethickness}
 \makeatother
 
 \nouppercaseheads
@@ -121,7 +160,7 @@ openany,
 \include{kapitel/kapitel_2.tex}
 
 \clearpage
-
+ 
 \thispagestyle{empty}
 \listoffigures
 \clearpage
