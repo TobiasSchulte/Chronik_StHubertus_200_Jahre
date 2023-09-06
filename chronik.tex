@@ -8,6 +8,7 @@ openany,
 \usepackage{fontspec}
 \usepackage[raggedright,bf,sf]{titlesec}
 \usepackage{titling}
+\usepackage{nameref}
 \usepackage[german]{babel} % English please
 \usepackage[final]{microtype} % Less badboxes
 \usepackage{graphicx} % Include figures
@@ -20,9 +21,13 @@ openany,
 %\setsansfont{Merriweather Sans}
 \setsansfont{Myriad Pro}
 
-\renewcommand{\printtoctitle}[1]{\Huge\sffamily\bfseries #1}
-\renewcommand{\printloftitle}[1]{\Huge\sffamily\bfseries #1}
-\renewcommand{\printlottitle}[1]{\Huge\sffamily\bfseries #1}
+\renewcommand{\printtoctitle}[1]{\Huge\sffamily #1}
+\renewcommand{\printloftitle}[1]{\Huge\sffamily #1}
+\renewcommand{\printlottitle}[1]{\Huge\sffamily #1}
+
+\newcommand{\tabref}[1]{Tabelle \ref{#1}: \nameref{#1}}
+
+\titleformat{\chapter}{\sffamily\bfseries\Huge}{\selectfont\thechapter}{1em}{}
 
 \setlrmarginsandblock{0.15\paperwidth}{*}{1} % Left and right margin
 \setulmarginsandblock{0.2\paperwidth}{*}{1}  % Upper and lower margin
@@ -86,9 +91,6 @@ openany,
 \date{}
 
 \begin{document}
-%\renewcommand\contentsname{{\sffamily Inhaltsverzechnis}}
-%\renewcommand\figurecontentsname{{\sffamily Inhaltsverzechnis}}
-%\renewcommand\tablecontentsname{{\sffamily Inhaltsverzechnis}}
 
 \frontmatter
 
@@ -114,79 +116,9 @@ openany,
 
 \mainmatter
 
-\chapter{Wie man eine Zeitmaschine baut}
+\include{kapitel/kapitel_1.tex}
 
-\lipsum[1-1] 
-
-\section{Anforderungen}
-
-\lipsum[1-1]
-
-\begin{table}
-  \centering
-  \begin{tabularx}{0.9\textwidth}{ c l l X }
-    Jahr & Name & Partner & \\
-    \hline\noalign{\smallskip}
-    1906 & Peter Pan & Petra & toller König \\ 
-    1907 & Max Müller & Mimi &  \\  
-    1908 & Susi Sommer & Simon & erste Frau \\
-    1906 & Peter Pan & Petra & toller König \\ 
-    1907 & Max Müller & Mimi &  \\  
-    1908 & Susi Sommer & Simon & erste Frau \\
-    1906 & Peter Pan & Petra & toller König \\ 
-    1907 & Max Müller & Mimi &  \\  
-    1908 & Susi Sommer & Simon & erste Frau \\
-    1906 & Peter Pan & Petra & toller König \\ 
-    1907 & Max Müller & Mimi &  \\  
-    1908 & Susi Sommer & Simon & erste Frau \\
-    1906 & Peter Pan & Petra & toller König \\ 
-    1907 & Max Müller & Mimi &  \\  
-    1908 & Susi Sommer & Simon & erste Frau \\
-    1906 & Peter Pan & Petra & toller König \\ 
-    1907 & Max Müller & Mimi &  \\  
-    1908 & Susi Sommer & Simon & erste Frau \\
-  \end{tabularx}
-  \caption{Könige historisch}
-  \label{fig:tab_koenige_historisch}
-\end{table}
-
-\section{Ausführung}
-
-\lipsum[1-1]
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.3\textwidth]{fotos/b}
-  \caption{Noch ein Bär}
-\end{figure}
-
-\lipsum[1-4]
-
-\chapter{Wie man eine Zeitmaschine zerstört}
-
-\lipsum[1-3]
-
-\section{Ausrüstung}
-
-\lipsum[1-1]
-
-\section{Erfahrung}
-
-\lipsum[1-1]
-
-\subsection{Schulisch}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{fotos/d}
-  \caption{Mehr Bär}
-\end{figure}
-
-\lipsum[1-5]
-
-\subsection{Arbeitsumfeld}
-
-\lipsum[1-2]
+\include{kapitel/kapitel_2.tex}
 
 \clearpage
 
