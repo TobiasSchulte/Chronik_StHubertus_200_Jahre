@@ -1,0 +1,9 @@
+\defaultfontfeatures[Merriweather Sans]
+{
+    Path = ./fonts/,
+    Extension = .otf ,
+    UprightFont = MerriweatherSans-Light,
+    BoldFont = MerriweatherSans-Medium,
+    ItalicFont = MerriweatherSans-Italic,
+    BoldItalicFont = MerriweatherSans-MediumItalic,
+}

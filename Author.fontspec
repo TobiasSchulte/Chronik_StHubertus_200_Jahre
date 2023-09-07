@@ -1,0 +1,9 @@
+\defaultfontfeatures[Author]
+{
+    Path = ./fonts/,
+    Extension = .otf ,
+    UprightFont = Author-Regular,
+    BoldFont = Author-Medium,
+    ItalicFont = Author-Italic,
+    BoldItalicFont = Author-MediumItalic,
+}

@@ -1,0 +1,9 @@
+\defaultfontfeatures[Recia]
+{
+    Path = ./fonts/,
+    Extension = .otf ,
+    UprightFont = Recia-Regular,
+    BoldFont = Recia-Bold,
+    ItalicFont = Recia-RegularItalic,
+    BoldItalicFont = Recia-BoldItalic,
+}

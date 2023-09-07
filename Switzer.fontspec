@@ -1,0 +1,9 @@
+\defaultfontfeatures[Switzer]
+{
+    Path = ./fonts/,
+    Extension = .otf ,
+    UprightFont = Switzer-Regular,
+    BoldFont = Switzer-Semibold,
+    ItalicFont = Switzer-Italic,
+    BoldItalicFont = Switzer-SemiboldItalic,
+}

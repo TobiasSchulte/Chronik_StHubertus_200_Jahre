@@ -1,0 +1,9 @@
+\defaultfontfeatures[Myriad Pro]
+{
+    Path = ./fonts/,
+    Extension = .otf ,
+    UprightFont = MyriadPro-Regular,
+    BoldFont = MyriadPro-Bold,
+    ItalicFont = MyriadPro-It,
+    BoldItalicFont = MyriadPro-BoldIt,
+}
