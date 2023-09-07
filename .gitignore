@@ -4,3 +4,4 @@
 *.lot
 *.pdf
 *.toc
+/*.synctex.gz
