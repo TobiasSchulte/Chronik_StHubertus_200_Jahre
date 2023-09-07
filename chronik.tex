@@ -17,51 +17,43 @@ openany,
 \usepackage{xcolor}
 \usepackage{caption}
 
-\usepackage{merriweather}
-\usepackage{librecaslon} % Caslon font
+%\usepackage{merriweather}
+%\usepackage{librecaslon} % Caslon font
 
-\setmainfont{Libre Caslon Text}
-%\setsansfont{Merriweather Sans}
+\setmainfont{Recia}
+%\setsansfont{Author}
+%\setsansfont{Switzer} %zu modern
 \setsansfont{Myriad Pro}
+%\setsansfont{Merriweather Sans}
 
-\renewcommand{\printtoctitle}[1]{\LARGE\sffamily #1}
+\renewcommand{\printtoctitle}[1]{\LARGE\sffamily\bfseries #1}
+\renewcommand{\cftchapterfont}{\sffamily\bfseries}
+\renewcommand{\cftchapterpagefont}{\sffamily\bfseries}
+\renewcommand{\cftsectionfont}{\sffamily}
+\renewcommand{\cftsectionpagefont}{\sffamily}
+\renewcommand{\cftsubsectionfont}{\sffamily}
+\renewcommand{\cftsubsectionpagefont}{\sffamily}
+\renewcommand{\cftsubsubsectionfont}{\sffamily}
+\renewcommand{\cftsubsubsectionpagefont}{\sffamily}
 \renewcommand{\printloftitle}[1]{\LARGE\sffamily #1}
+\renewcommand{\cftfigurefont}{\sffamily}
+\renewcommand{\cftfigurepagefont}{\sffamily}
 \renewcommand{\printlottitle}[1]{\LARGE\sffamily #1}
-
-\titlecontents{chapter}
-  [1.5em] % ie, 1.5em (chapter) + 2.3em
-  {\sffamily}
-  {\contentslabel{2.3em}}
-  {\hspace*{-2.3em}}
-  {\titlerule*[1pc]{.}\contentspage}
-
-\titlecontents{subsection}
-  [6.1em] % ie, 1.5em (chapter) + 2.3em
-  {\sffamily}
-  {\contentslabel{2.3em}}
-  {\hspace*{-2.3em}}
-  {\titlerule*[1pc]{.}\contentspage}
-
-\titlecontents{section}
-  [3.8em] % ie, 1.5em (chapter) + 2.3em
-  {\sffamily}
-  {\contentslabel{2.3em}}
-  {\hspace*{-2.3em}}
-  {\titlerule*[1pc]{.}\contentspage}
+\renewcommand{\cfttablefont}{\sffamily}
+\renewcommand{\cfttablepagefont}{\sffamily}
 
 \newcommand{\tabref}[1]{Tabelle \ref{#1}: \nameref{#1}}
 
 \captionsetup{%
   font={normalsize}, % small font size
-  labelfont={sf},      % label in bold, sans-serif
-  textfont={sf},
+  labelfont={it},      % label in bold, sans-serif
+  textfont={it},
   singlelinecheck=true, % centered single-lined captions
   format=plain,             % indention=1cm,
   labelsep={colon},         % default separator: none, colon, period, space, quad, newline, endash
 }
 
-%\titleformat{\chapter}[display]{\sffamily\Huge}{}{1em}{\thechapter}
-\titleformat{\chapter}[display]{\sffamily\LARGE}{\raggedleft\HUGE\textcolor{gray}{\normalfont\thechapter}}{0.5em}{}[\titlerule]
+\titleformat{\chapter}[display]{\sffamily\bfseries\LARGE}{\raggedleft\HUGE\textcolor{gray}{\normalfont\thechapter}}{0.5em}{}[\titlerule]
 \titleformat*{\section}{\sffamily\LARGE}
 \titleformat*{\subsection}{\sffamily\Large}
 \titleformat*{\subsubsection}{\sffamily\large}
@@ -97,7 +89,7 @@ openany,
 
 \makeatletter
 \makepsmarks{standard}{
-\createmark{chapter}{both}{shownumber}{\@chapapp\ }{ \quad }
+\createmark{chapter}{both}{shownumber}{}{ \quad }
 \createmark{section}{right}{shownumber}{}{ \quad }
 \createplainmark{toc}{both}{\contentsname}
 \createplainmark{lof}{both}{\listfigurename}
@@ -125,25 +117,29 @@ openany,
 \maxtocdepth{subsection} % Only parts, chapters and sections in the table of contents
 \settocdepth{subsection}
 
-\author{\sffamily\huge A. Author}
-\title{\sffamily\Huge The amazing Book about Timemachines}
-\date{}
+\author{}
+\title{\sffamily\Huge Chronik zum 200-jährigen Bestehen der Schützenbruderschaft St. Hubertus Niederense 1824 e.V.}
+\date{\sffamily Herausgegeben im Juli 2024}
 
 \begin{document}
+
+\raggedbottom
 
 \frontmatter
 
 \maketitle
 
-\clearpage
+\include{info.tex}
+
+\cleartooddpage
 
 \tableofcontents*
 
-\clearpage
+\cleartooddpage
 
 \chapter{Vorwort}
 
-\lipsum[1-2]
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«. Sehr bekannt ist dieser: The quick brown fox jumps over the lazy old dog. Oft werden in Typoblindtexte auch fremdsprachige Satzteile eingebaut (AVAIL® and Wefox™ are testing aussi la Kerning), um die Wirkung in anderen Sprachen zu testen. In Lateinisch sieht zum Beispiel fast jede Schrift gut aus. Quod erat demonstrandum. Seit 1975 fehlen in den meisten Testtexten die Zahlen, weswegen nach TypoGb. 204 § ab dem Jahr 2034 Zahlen in 86 der Texte zur Pflicht werden. Nichteinhaltung wird mit bis zu 245 € oder 368 \$ bestraft. Genauso wichtig in sind mittlerweile auch Âçcèñtë, die in neueren Schriften aber fast immer enthalten sind. Ein wichtiges aber schwierig zu integrierendes Feld sind OpenType-Funktionalitäten. Je nach Software und Voreinstellungen können eingebaute Kapitälchen, Kerning oder Ligaturen (sehr pfiffig) nicht richtig dargestellt werden.
 
 \begin{figure}
   \centering
@@ -151,7 +147,9 @@ openany,
   \caption{Ein Bär}
 \end{figure}
 
-\lipsum[1-2]
+Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«. Sehr bekannt ist dieser: The quick brown fox jumps over the lazy old dog. Oft werden in Typoblindtexte auch fremdsprachige Satzteile eingebaut (AVAIL® and Wefox™ are testing aussi la Kerning), um die Wirkung in anderen Sprachen zu testen. In Lateinisch sieht zum Beispiel fast jede Schrift gut aus. Quod erat demonstrandum. Seit 1975 fehlen in den meisten Testtexten die Zahlen, weswegen nach TypoGb. 204 § ab dem Jahr 2034 Zahlen in 86 der Texte zur Pflicht werden. Nichteinhaltung wird mit bis zu 245 € oder 368 \$ bestraft. Genauso wichtig in sind mittlerweile auch Âçcèñtë, die in neueren Schriften aber fast immer enthalten sind. Ein wichtiges aber schwierig zu integrierendes Feld sind OpenType-Funktionalitäten. Je nach Software und Voreinstellungen können eingebaute Kapitälchen, Kerning oder Ligaturen (sehr pfiffig) nicht richtig dargestellt werden.
+
+An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«. Sehr bekannt ist dieser: The quick brown fox jumps over the lazy old dog. Oft werden in Typoblindtexte auch fremdsprachige Satzteile eingebaut (AVAIL® and Wefox™ are testing aussi la Kerning), um die Wirkung in anderen Sprachen zu testen. In Lateinisch sieht zum Beispiel fast jede Schrift gut aus. Quod erat demonstrandum. Seit 1975 fehlen in den meisten Testtexten die Zahlen, weswegen nach TypoGb. 204 § ab dem Jahr 2034 Zahlen in 86 der Texte zur Pflicht werden. Nichteinhaltung wird mit bis zu 245 € oder 368 \$ bestraft. Genauso wichtig in sind mittlerweile auch Âçcèñtë, die in neueren Schriften aber fast immer enthalten sind. Ein wichtiges aber schwierig zu integrierendes Feld sind OpenType-Funktionalitäten. Je nach Software und Voreinstellungen können eingebaute Kapitälchen, Kerning oder Ligaturen (sehr pfiffig) nicht richtig dargestellt werden.
 
 \mainmatter
 
@@ -159,21 +157,23 @@ openany,
 
 \include{kapitel/kapitel_2.tex}
 
-\clearpage
+\cleartooddpage
  
 \thispagestyle{empty}
 \listoffigures
-\clearpage
+\cleartooddpage
 
 \thispagestyle{empty}
 \listoftables
-\clearpage
+\cleartooddpage
 
 \appendix
 
 \chapter{Kausalität}
 
-\lipsum[1-2]
+Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«. Sehr bekannt ist dieser: The quick brown fox jumps over the lazy old dog. Oft werden in Typoblindtexte auch fremdsprachige Satzteile eingebaut (AVAIL® and Wefox™ are testing aussi la Kerning), um die Wirkung in anderen Sprachen zu testen. In Lateinisch sieht zum Beispiel fast jede Schrift gut aus. Quod erat demonstrandum. Seit 1975 fehlen in den meisten Testtexten die Zahlen, weswegen nach TypoGb. 204 § ab dem Jahr 2034 Zahlen in 86 der Texte zur Pflicht werden. Nichteinhaltung wird mit bis zu 245 € oder 368 \$ bestraft. Genauso wichtig in sind mittlerweile auch Âçcèñtë, die in neueren Schriften aber fast immer enthalten sind. Ein wichtiges aber schwierig zu integrierendes Feld sind OpenType-Funktionalitäten. Je nach Software und Voreinstellungen können eingebaute Kapitälchen, Kerning oder Ligaturen (sehr pfiffig) nicht richtig dargestellt werden.
+
+Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«. Sehr bekannt ist dieser: The quick brown fox jumps over the lazy old dog. Oft werden in Typoblindtexte auch fremdsprachige Satzteile eingebaut (AVAIL® and Wefox™ are testing aussi la Kerning), um die Wirkung in anderen Sprachen zu testen. In Lateinisch sieht zum Beispiel fast jede Schrift gut aus. Quod erat demonstrandum. Seit 1975 fehlen in den meisten Testtexten die Zahlen, weswegen nach TypoGb. 204 § ab dem Jahr 2034 Zahlen in 86 der Texte zur Pflicht werden. Nichteinhaltung wird mit bis zu 245 € oder 368 \$ bestraft. Genauso wichtig in sind mittlerweile auch Âçcèñtë, die in neueren Schriften aber fast immer enthalten sind. Ein wichtiges aber schwierig zu integrierendes Feld sind OpenType-Funktionalitäten. Je nach Software und Voreinstellungen können eingebaute Kapitälchen, Kerning oder Ligaturen (sehr pfiffig) nicht richtig dargestellt werden.
 
 \backmatter
 
