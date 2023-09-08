@@ -1,0 +1,116 @@
+
+\usepackage{fontspec}
+\usepackage[raggedright,bf,sf]{titlesec}
+\usepackage{titletoc}
+\usepackage{titling}
+\usepackage{nameref}
+\usepackage[german]{babel} % English please
+\usepackage[final]{microtype} % Less badboxes
+\usepackage{graphicx} % Include figures
+\usepackage{lipsum} % Just to put in some text
+\usepackage{xcolor}
+\usepackage{caption}
+
+%\usepackage{merriweather}
+%\usepackage{librecaslon} % Caslon font
+
+\setmainfont{Recia}
+%\setsansfont{Author}
+%\setsansfont{Switzer} %zu modern
+%\setsansfont{Myriad Pro} %ziemlich fett
+\setsansfont{Merriweather Sans}
+
+\renewcommand{\printtoctitle}[1]{\LARGE\sffamily\bfseries #1}
+\renewcommand{\cftchapterfont}{\sffamily\bfseries}
+\renewcommand{\cftchapterpagefont}{\sffamily\bfseries}
+\renewcommand{\cftsectionfont}{\sffamily}
+\renewcommand{\cftsectionpagefont}{\sffamily}
+\renewcommand{\cftsubsectionfont}{\sffamily}
+\renewcommand{\cftsubsectionpagefont}{\sffamily}
+\renewcommand{\cftsubsubsectionfont}{\sffamily}
+\renewcommand{\cftsubsubsectionpagefont}{\sffamily}
+\renewcommand{\printloftitle}[1]{\LARGE\sffamily #1}
+\renewcommand{\cftfigurefont}{\sffamily}
+\renewcommand{\cftfigurepagefont}{\sffamily}
+\renewcommand{\printlottitle}[1]{\LARGE\sffamily #1}
+\renewcommand{\cfttablefont}{\sffamily}
+\renewcommand{\cfttablepagefont}{\sffamily}
+
+\newcommand{\tabref}[1]{Tabelle \ref{#1}: \nameref{#1}}
+
+\captionsetup{%
+  font={normalsize}, % small font size
+  labelfont={it}, % label and text in italic
+  textfont={it},
+  singlelinecheck=true, % centered single-lined captions
+  format=plain,
+  labelsep={colon}, % default separator: none, colon, period, space, quad, newline, endash
+}
+
+\titleformat{\chapter}[display]{\sffamily\bfseries\LARGE}{\raggedleft\HUGE\textcolor{gray}{\normalfont\thechapter}}{0.5em}{}[\titlerule]
+\titleformat*{\section}{\sffamily\Large}
+\titleformat*{\subsection}{\sffamily\normalsize}
+\titleformat*{\subsubsection}{\sffamily\normalsize}
+\titleformat*{\paragraph}{\sffamily\normalsize}
+\titleformat*{\subparagraph}{\sffamily\normalsize}
+
+\setlrmarginsandblock{0.15\paperwidth}{*}{1} % Left and right margin
+\setulmarginsandblock{0.2\paperwidth}{*}{1}  % Upper and lower margin
+\checkandfixthelayout
+
+\maxsecnumdepth{subsection} % Subsections (and higher) are numbered
+\setsecnumdepth{subsection}
+
+\chapterstyle{standard}
+
+\makeatletter                  % You do not need to write [htpb] all the time
+\renewcommand\fps@figure{htbp} %
+\renewcommand\fps@table{htbp}  %
+\makeatother                   %
+
+%%% HEADER AND FOOTER 
+%%%------------------------------------------------------------------------------
+
+\makepagestyle{standard} % Make standard pagestyle
+
+\makeatletter                 % Define standard pagestyle
+\makeevenfoot{standard}{\small\sffamily\thepage}{}{} %
+\makeoddfoot{standard}{}{}{\small\sffamily\thepage}  %
+\makeevenhead{standard}{\textcolor{gray}{\sffamily\small\leftmark}}{}{}
+\makeoddhead{standard}{}{}{\textcolor{gray}{\sffamily\small\rightmark}}
+\makeheadrule{standard}{\textwidth}{\normalrulethickness}
+\makeatother                  %
+
+\makeatletter
+\makepsmarks{standard}{
+\createmark{chapter}{both}{shownumber}{}{ \quad }
+\createmark{section}{right}{shownumber}{}{ \quad }
+\createplainmark{toc}{both}{\contentsname}
+\createplainmark{lof}{both}{\listfigurename}
+\createplainmark{lot}{both}{\listtablename}
+\createplainmark{bib}{both}{\bibname}
+\createplainmark{index}{both}{\indexname}
+\createplainmark{glossary}{both}{\glossaryname}
+}
+\makeatother                               %
+
+\makepagestyle{chap} % Make new chapter pagestyle
+
+\makeatletter
+\makeevenfoot{chap}{\small\sffamily\thepage}{}{} % Define new chapter pagestyle
+\makeoddfoot{chap}{}{}{\small\sffamily\thepage}  %
+\makeevenhead{chap}{}{}{}   %
+\makeoddhead{chap}{}{}{}    %
+%\makeheadrule{chap}{\textwidth}{\normalrulethickness}
+\makeatother
+
+\nouppercaseheads
+\pagestyle{standard}               % Choosing pagestyle and chapter pagestyle
+\aliaspagestyle{chapter}{chap} %
+
+\maxtocdepth{subsection} % Only parts, chapters and sections in the table of contents
+\settocdepth{subsection}
+
+\author{}
+\title{\sffamily\Huge Chronik anlässlich des\\200-jährigen Bestehens\\der Schützenbruderschaft\\St. Hubertus 1824 Niederense}
+\date{\sffamily Herausgegeben im Juli 2024}
